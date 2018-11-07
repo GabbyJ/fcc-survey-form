@@ -1,0 +1,199 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<html>
+<head>
+<title>Survey Form</title>
+	<style>
+		input:invalid {
+			box-shadow: 0 0 1px 1px red;
+}
+		input{
+			margin-left: 0px;
+			margin-right: 40px;
+			
+		}
+		h1{
+			text-align: center;
+			font-family: Arial, sans-serif;
+		}
+		body{
+			padding: 30px;
+			background-color: lightskyblue;
+			text-align: justify;
+			font-size: 18px;
+		}
+		#description{
+			text-align: center;
+			font-size: 20px;
+		}
+		#content{
+			background-color: aliceblue;
+			padding: 30px;
+			border-radius: 5%;
+		}
+		#number{
+			width: 80px;
+		}
+		#def, #no, #maybe{
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			
+			
+		}
+		#front-end, #back-end, #data, #challenges, #open-source, #gitter, #videos, #meetup, #wiki, #forum, #additional{
+			width: 20px;
+			height: 20px;
+			margin: 10px;
+			
+		}
+		#dropdown, #most-like{
+			font-size: 14px;
+			background-color: deepskyblue;
+		}
+		#submit{
+    background-color: deepskyblue;
+    vertical-align: middle;
+    width: 80px;
+      height:30px;
+    text-align: center;
+			font-family: "Arial", "sans-serif";
+			font-size: 20px;
+			border-radius: 5px;
+			border: 1px solid black;
+      
+		}
+		footer{
+			margin-top: 10px;
+			margin-right: 10px;
+			text-align: right;
+			font-family: Arial, sans-serif;
+			font-size: 12px;
+			
+		}
+		#comments{
+			width: 60%;
+		}
+		
+		@media screen and (max-width:600px) {
+			#comments{
+				width: 100%;
+			}
+			
+		}
+var email = document.getElementById("mail");
+
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I expect an e-mail, darling!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+	</style>
+</head>
+
+<body>
+<h1 id="title">Survey Form</h1>
+<div id="content">
+<p id="description">Let us know how we can improve freeCodeCamp</p>
+<form id="survey-form" action="thanks.html">
+	<p><label for="name" id="name-label">
+		<span style="color: #FA0004">*</span> Name: </label>
+  <input  type="text" id="name" name="name" required placeholder="Enter your name" ></p>
+	<p><label for="email" id="email-label">
+		<span style="color: #FA0004">*</span> Email: </label>
+		<input  type="email" id="email" required name="email" placeholder="Enter a valid email address" ></p>
+	<p>
+		<label for="age" id="number-label">
+		<span style="color: #FA0004">*</span> Age: &nbsp;&nbsp;</label>
+		<input  type="number" id="number" name="age" min="1" max="100"  required placeholder="Ex: 21" pattern="\d+"><!--pattern="/d+" is a backup for browsers that don't support id="number"--></p>
+	
+
+	
+
+	<p><label for="role">Which option best describes your current role?</label></p>
+	<p><select name="role" id="dropdown">
+		<option value="">Select your option</option>
+		<option value="student">Student</option>
+		<option value="job">Full Time Job</option>
+		<option value="learner">Full Time Learner</option>
+		<option value="not-say">Prefer not to say</option>
+		<option value="other">Other</option>
+	</select></p>
+
+	
+	
+
+	<p><label for="rating"><span style="color: #FA0004">*</span> How likely is that you would recommend freeCodeCamp to a friend?</label></p>
+	<p><label for="def">
+		<input id="def" type="radio" value="1"  name="recommend" required>Definitely
+		</label></p>
+	<p><label for="maybe">
+		<input id="maybe" type="radio" value="2" name="recommend" required >Maybe
+		</label></p>
+	<p><label for="no">
+		<input id="no" type="radio" value="3" name="recommend" required >Not sure
+		</label></p>
+	
+	
+<p><label for="most-like">What do you like most in FCC:</label></p>
+	<select id="most-like" name="mostLike" >
+		<option value="">Select your option</option>
+		<option value="challenges">Challenges</option>
+		<option value="projects">Projects</option>
+		<option value="community">Community</option>
+		<option value="open-source">Open Source</option>
+	</select>
+
+
+	<p><label for="improvement">Things that should be improved in the future<br>
+(Check all that apply):</label></p>
+	<p><label >
+		<input id="front-end" type="checkbox" name="improvement" value="1"> Front-end Projects
+	</label></p>
+	<p><label >
+		<input id="back-end" type="checkbox" name="improvement" value="2"> Back-end Projects
+	</label></p>
+	<p><label >
+		<input id="data" type="checkbox" name="improvement" value="3"> Data Visualization
+	</label></p>
+	<p><label >
+		<input id="challenges" type="checkbox" name="improvement" value="4"> Challenges
+	</label></p>
+	<p><label >
+		<input id="open-source" type="checkbox" name="improvement" value="5"> Open Source Community
+	</label></p>
+	<p><label >
+		<input id="gitter" type="checkbox" name="improvement" value="6"> Gitter help rooms
+	</label></p>
+	<p><label >
+		<input id="videos" type="checkbox" name="improvement" value="7"> Videos
+	</label></p>
+	<p><label >
+		<input id="meetup" type="checkbox" name="improvement" value="8"> City Meetups
+	</label></p>
+	<p><label >
+		<input id="wiki" type="checkbox" name="improvement" value="9"> Wiki
+	</label></p>
+	<p><label >
+		<input id="forum" type="checkbox" name="improvement" value="10"> Forum
+	</label></p>
+	<p><label >
+		<input id="additional" type="checkbox" name="improvement" value="11"> Additional Courses
+	</label></p>
+
+	
+
+	<p><label for="comments">Any comments or suggestions?</label></p>
+	<p><textarea id="comments" name="comments" rows="4" cols="50" style="height:70px; resize:vertical;" placeholder="Enter your comments here..."></textarea></p>
+	
+	
+	
+		<button id="submit" type="submit">Submit</button>
+	
+		</form>
+	</div>
+	<footer>Gabrielle's Survey Form project ©2018</footer>
+</body>
+</html>
